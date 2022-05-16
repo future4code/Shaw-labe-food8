@@ -1,5 +1,11 @@
 import React from "react";
 
-export default function HomeScreenPage() {
+
+const HomeScreenPage = () => {
+
+
+
   return <div>HomeScreenPage</div>;
 }
+
+export default HomeScreenPage
