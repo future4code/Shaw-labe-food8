@@ -17,3 +17,7 @@ export const goToSignUpAdressPage = (navigate) => {
 export const goToRestaurantPage = (navigate) => {
   navigate("/restaurant");
 };
+
+export const goToFeed = (navigate) =>{
+  navigate("/feed")
+}

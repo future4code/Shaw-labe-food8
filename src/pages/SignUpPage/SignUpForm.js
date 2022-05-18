@@ -1,18 +1,17 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import logoFuture from "../../assets/logoFuture.png"
+import logoFuture from "../../assets/logoFuture.png";
+import useForm from "../../hooks/useForm";
+import { signUp } from "../../services/user";
+import { useNavigate } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -49,88 +48,78 @@ const useStyles = makeStyles((theme) => ({
 
 const SignUpForm = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const [form, onChange, clear] = useForm({
+    name: "",
+    email: "",
+    cpf: "",
+    password: "",
+  });
+
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    signUp(form, clear, navigate);
+  };
+
+
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <img src={logoFuture}/>
+        <img src={logoFuture} />
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={onSubmitForm}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
+                name="name"
+                onChange={onChange}
+                value={form.name}
                 fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
+                required
+                label="Nome"
+                variant="outlined"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid>
+
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
                 name="email"
-                autoComplete="email"
+                label="E-mail"
+                onChange={onChange}
+                value={form.email}
+                fullWidth
+                required
+                variant="outlined"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="CPF"
+                name="cpf"
                 label="CPF"
-                type="CPF"
-                id="CPF"
-                
+                onChange={onChange}
+                value={form.cpf}
+                required
+                fullWidth
+                variant="outlined"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                name="password"
                 variant="outlined"
+                onChange={onChange}
+                value={form.password}
+                label="Senha"
+                type="password"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Confirme a senha Anterior"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-           
           </Grid>
           <Button
             type="submit"

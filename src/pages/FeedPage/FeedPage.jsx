@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect } from "react";
 // import GlobalStateContext from "../Global/GlobalStateContext";
 import { FeedItem } from "../../components/FeedItem/FeedItem";
@@ -126,3 +127,4 @@ export default function FeedPage() {
     </StyledContainer>
   );
 }
+
