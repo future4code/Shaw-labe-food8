@@ -1,23 +1,23 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@material-ui/core";
 
 export const theme = createTheme({
-  components: {
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          color: "#000",
-        },
-      },
-    },
+  // components: {
+  //   MuiTab: {
+  //     styleOverrides: {
+  //       root: {
+  //         color: "#000",
+  //       },
+  //     },
+  //   },
 
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          color: "#b8b8b8",
-        },
-      },
-    },
-  },
+  //   MuiTypography: {
+  //     styleOverrides: {
+  //       root: {
+  //         color: "#b8b8b8",
+  //       },
+  //     },
+  //   },
+  // },
 
   palette: {
     primary: {
