@@ -1,36 +1,14 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@material-ui/core/styles";
+import purple from "@material-ui/core/colors/purple";
+import green from "@material-ui/core/colors/green";
 
 export const theme = createTheme({
-  components: {
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          color: "#000",
-        },
-      },
-    },
-
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          color: "#b8b8b8",
-        },
-      },
-    },
-  },
-
   palette: {
     primary: {
-      main: "#000",
+      main: purple[500],
     },
     secondary: {
-      main: "#5cb646",
-      // contrastText: "#ffcc00",
-    },
-
-    text: {
-      // primary: "#000	",
-      // secondary: "rgba(255,0,0,0.54)",
+      main: green[500],
     },
   },
 });
