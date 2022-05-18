@@ -1,13 +1,12 @@
-import React from "react";
-import sandwich from "../../assets/sandwich.jpeg";
-import styled from "styled-components";
+import * as React from "react";
 import {
+  Card,
   CardActions,
   CardContent,
   CardMedia,
   Typography,
-  Card,
 } from "@material-ui/core";
+import styled from "styled-components";
 
 const StyleCard = styled(Card)`
   && {
@@ -25,29 +24,26 @@ const StyleCardActions = styled(CardActions)`
   }
 `;
 
-export function FeedItem() {
+export function FeedItem(props) {
   return (
-    <StyleCard>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image={sandwich}
-      />
+    <StyleCard onClick={props.onClick}>
+      <CardMedia component="img" height="140" image={props.image} />
       <CardContent>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="div"
-          color={"secondary"}
-        >
-          Vinil Butantã
+        <Typography gutterBottom variant="h5" component="p" color={"secondary"}>
+          {props.restaurant}
         </Typography>
+        {props.category && <>{props.category}</>}
       </CardContent>
+
       <StyleCardActions>
-        <Typography>50 - 60 min</Typography>
-        <Typography>Frete R$6,00</Typography>
+        <Typography>{props.deliveryTime}</Typography>
+        <Typography>{props.deliveryPrice}</Typography>
       </StyleCardActions>
+      {props.adress && (
+        <>
+          <Typography>{props.adress}</Typography>
+        </>
+      )}
     </StyleCard>
   );
 }
