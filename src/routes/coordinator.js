@@ -18,18 +18,22 @@ export const goToRestaurantPage = (navigate) => {
   navigate("/restaurant");
 };
 
-export const goToFeed = (navigate) =>{
-  navigate("/feed")
-}
+export const goToFeedPage = (navigate) => {
+  navigate("/feed");
+};
 
 export const goToProfilePage = (navigate) => {
-  navigate("/perfil")
-}
+  navigate("/perfil");
+};
 
 export const goToEditProfilePage = (navigate) => {
-  navigate("/perfil/editar")
-}
+  navigate("/perfil/editar");
+};
 
 export const goToEditAdressPage = (navigate) => {
-  navigate("/perfil/editar-adress")
-}
+  navigate("/perfil/editar-adress");
+};
+
+export const goToCartPage = (navigate) => {
+  navigate("/cart");
+};

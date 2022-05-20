@@ -1,22 +1,21 @@
-
 import React, { useContext, useEffect } from "react";
-// import GlobalStateContext from "../Global/GlobalStateContext";
+import GlobalStateContext from "../Global/GlobalStateContext";
 import { FeedItem } from "../../components/FeedItem/FeedItem";
 import styled from "styled-components";
-import { FeedNavMenu } from "../../components/FeedNavMenu/FeedNavMenu";
-import { FeedNavIcons } from "../../components/FeedNavIcons/FeedNavIcons";
+import NavMenu from "../../components/NavMenu/NavMenu";
+import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import { useNavigate } from "react-router-dom";
 import useAuthorization from "../../hooks/useAuthorization";
 import { goToRestaurantPage } from "../../routes/coordinator";
 import useRequestData from "../../hooks/useRequestData";
-
-import SearchIcon from "@material-ui/icons/Search";
 import {
   IconButton,
   InputAdornment,
   OutlinedInput,
   Typography,
 } from "@material-ui/core";
+
+import SearchIcon from "@material-ui/icons/Search";
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -79,6 +78,7 @@ export default function FeedPage() {
 
   return (
     <StyledContainer>
+      {/* ANCHOR INPUT SEARCH */}
       <StyleOutlinedInput
         onChange={filterName}
         placeholder="Restaurante"
@@ -90,7 +90,8 @@ export default function FeedPage() {
           </InputAdornment>
         }
       />
-      <FeedNavMenu arrayCategory={Categorys} getCategory={getCategory} />
+      {/* ANCHOR NAVMENU */}
+      <NavMenu arrayCategory={Categorys} getCategory={getCategory} />
 
       {filterList.length > 0 ? (
         filterList.map((restaurant) => {
@@ -119,12 +120,7 @@ export default function FeedPage() {
         </>
       )}
 
-      {/* <FeedItem />
-      <FeedItem />
-      <FeedItem /> */}
-      <StyleBorder />
-      <FeedNavIcons />
+      {/* <StyleBorder /> */}
     </StyledContainer>
   );
 }
-
