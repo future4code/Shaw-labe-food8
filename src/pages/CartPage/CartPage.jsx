@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import GlobalStateContext from "../Global/GlobalStateContext";
+import GlobalStateContext from "../../global/GlobalStateContext";
 import useAuthorization from "../../hooks/useAuthorization";
 import { BASE_URL } from "../../constants/url";
 import {
