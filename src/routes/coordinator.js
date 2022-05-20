@@ -21,3 +21,15 @@ export const goToRestaurantPage = (navigate) => {
 export const goToFeed = (navigate) =>{
   navigate("/feed")
 }
+
+export const goToProfilePage = (navigate) => {
+  navigate("/perfil")
+}
+
+export const goToEditProfilePage = (navigate) => {
+  navigate("/perfil/editar")
+}
+
+export const goToEditAdressPage = (navigate) => {
+  navigate("/perfil/editar-adress")
+}
