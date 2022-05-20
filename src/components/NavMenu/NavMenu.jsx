@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { AppBar, Tab, Tabs } from "@material-ui/core";
+import React from "react";
+import { AppBar, Tabs } from "@material-ui/core";
 
 import styled from "styled-components";
 
@@ -13,12 +13,6 @@ const StyleAppBar = styled(AppBar)`
 `;
 
 export default function NavMenu(props) {
-  // const [value, setValue] = useState(0);
-
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
-
   return (
     <StyleAppBar>
       {props.arryCategory.map((category, idx) => {
@@ -28,22 +22,13 @@ export default function NavMenu(props) {
             href={`#${category}`}
             onClick={() => props.getCategory(category)}
             variant="scrollable"
-            indicatorColor="none"
             textColor="secondary"
+            indicatorColor="none"
           >
             {category}
           </Tabs>
         );
       })}
-      {/* <Tabs value={value} onChange={handleChange} variant="scrollable">
-        <Tab label="Burguer" />
-        <Tab label="Asiatica" />
-        <Tab label="Massas" />
-        <Tab label="Saudaveis" />
-        <Tab label="Item Five" />
-        <Tab label="Item Six" />
-        <Tab label="Item Seven" />
-      </Tabs> */}
     </StyleAppBar>
   );
 }

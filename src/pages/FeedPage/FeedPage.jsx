@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import GlobalStateContext from "../Global/GlobalStateContext";
+import { GlobalStateContext } from "../../global/GlobalStateContext";
 import { FeedItem } from "../../components/FeedItem/FeedItem";
 import styled from "styled-components";
 import NavMenu from "../../components/NavMenu/NavMenu";
-import FooterMenu from "../../components/FooterMenu/FooterMenu";
+// import FooterMenu from "../../components/FooterMenu/FooterMenu";
 import { useNavigate } from "react-router-dom";
 import useAuthorization from "../../hooks/useAuthorization";
 import { goToRestaurantPage } from "../../routes/coordinator";
@@ -22,11 +22,6 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-export const StyleBorder = styled.div`
-  width: 100%;
-  border-top: 1px solid #b8b8b8;
 `;
 
 export const StyleOutlinedInput = styled(OutlinedInput)`
@@ -119,8 +114,6 @@ export default function FeedPage() {
           <Typography>Não encontramos :(</Typography>
         </>
       )}
-
-      {/* <StyleBorder /> */}
     </StyledContainer>
   );
 }
