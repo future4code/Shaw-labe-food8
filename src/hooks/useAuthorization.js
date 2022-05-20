@@ -1,4 +1,4 @@
-import { useEffect } from "react/cjs/react.production.min";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function useAuthorization() {
@@ -7,6 +7,6 @@ export default function useAuthorization() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    !token && navigate("/");
+    !token && navigate("/home");
   }, [navigate]);
 }
